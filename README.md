@@ -18,7 +18,7 @@ conda activate flux-dsta
 pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
 
 # Other deps
-pip install diffusers transformers accelerate peft prodigyopt safetensors datasets pillow scikit-image torchmetrics tqdm pandas
+pip install diffusers transformers accelerate peft prodigyopt safetensors datasets pillow scikit-image torchmetrics torch-fidelity tabulate tqdm pandas
 
 # Login to HF (Klein models are gated)
 huggingface-cli login
@@ -110,8 +110,6 @@ python run_flux2.py \
   --seed 0 \
   --num_inference_steps 4
 ```
-
-**Why these settings:** `seed=0` and `num_inference_steps=4` were the best at our 256×256 IR generation. Use `--num_inference_steps 8` if quality matters more than speed.
 
 ## Step 5: Evaluate
 
