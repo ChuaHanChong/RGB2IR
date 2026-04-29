@@ -17,7 +17,6 @@ env/
 .DS_Store
 
 # Training artifacts
-*.safetensors
 *.bin
 *.pt
 *.ckpt
@@ -30,3 +29,7 @@ runs/
 data/
 logs/
 outputs/
+
+# Model weights — block by default, but allow models/
+*.safetensors
+!models/*.safetensors

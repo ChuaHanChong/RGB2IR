@@ -24,6 +24,9 @@ pip install diffusers transformers accelerate peft prodigyopt safetensors datase
 
 # Login to HF (Klein models are gated)
 huggingface-cli login
+
+# Git LFS — required to clone the LoRA weights in models/
+git lfs install
 ```
 
 Set HF cache:
@@ -133,6 +136,10 @@ bash scripts/hp_tune.sh 0   # GPU 0
 ```
 
 The sweep covers rank (32/64/128), epochs (100/150/200), dropout (0.05/0.10), LoRA targets (attention-only vs +FF), and weighting scheme (cosmap vs sigma_sqrt). Skips already-completed configs. Outputs `leaderboard.csv` ranked by PSNR.
+
+## Pretrained LoRA
+
+A pretrained grayscale → IR LoRA (champion of 22-experiment optimization, PSNR=15.97) is included at `models/pytorch_lora_weights.safetensors` via Git LFS. To use it, clone the repo with `git lfs install` first (or run `git lfs pull` after a regular clone). Then point `--lora_weights /path/to/RGB2IR/models` in Step 4.
 
 ## File Reference
 
