@@ -38,8 +38,8 @@ Use Klein-9B with category-specific prompts. Run for both `train` and `test` spl
 python run_flux2.py \
   --input_folder  /path/to/real_ir/<SPLIT>/<category> \
   --output_folder /path/to/synthetic_rgb/<SPLIT>/<category> \
-  --model_name    "black-forest-labs/FLUX.2-klein-9B" \
-  --prompt        "Turn this thermal infrared image of a <vessel_type> into a visually realistic RGB image as it would appear under visible light. Accurately preserve the vessel's hull structure, silhouette, and outline." \
+  --model_name "black-forest-labs/FLUX.2-klein-9B" \
+  --prompt "Turn this thermal infrared image of a <vessel_type> into a visually realistic RGB image as it would appear under visible light. Accurately preserve the vessel's hull structure, silhouette, and outline." \
   --num_inference_steps 20 \
   --guidance_scale 1.0 \
   --seed 0
@@ -51,10 +51,10 @@ Run per-category for best quality (vessel-specific prompts). Produces `synthetic
 
 ```bash
 python create_hf_dataset.py \
-  --cond_dir   /path/to/synthetic_rgb/train \
+  --cond_dir /path/to/synthetic_rgb/train \
   --target_dir /path/to/real_ir/train \
   --output_dir /path/to/HFDataset_rgb2ir \
-  --prompt     "turn the visible image of Marine Vessel into sks infrared"
+  --prompt "turn the visible image of Marine Vessel into sks infrared"
 ```
 
 `cond_dir` and `target_dir` must mirror each other (same filenames, same category subdirs).
@@ -116,7 +116,7 @@ python run_flux2.py \
 ```bash
 python eval.py \
   --gen /path/to/output_ir \
-  --gt  /path/to/real_ir/test
+  --gt /path/to/real_ir/test
 ```
 
 Outputs PSNR, SSIM, FID. Saves per-image results to `eval_results.json`.
