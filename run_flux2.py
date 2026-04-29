@@ -55,10 +55,11 @@ def main(args):
 
             relative_path = input_path.relative_to(input_folder)
 
-            # Save RGB (native FLUX output)
+            # Save as grayscale (single channel)
+            gray_image = output_image.convert("L")
             out_path = output_folder / relative_path
             out_path.parent.mkdir(parents=True, exist_ok=True)
-            output_image.save(out_path)
+            gray_image.save(out_path)
 
         except Exception as e:
             print(f"Error processing {input_path.name}: {e}")
