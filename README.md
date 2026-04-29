@@ -139,7 +139,7 @@ The sweep covers rank (32/64/128), epochs (100/150/200), dropout (0.05/0.10), Lo
 
 ## Pretrained LoRA
 
-A pretrained grayscale → IR LoRA (champion of 22-experiment optimization, PSNR=15.97) is included at `models/pytorch_lora_weights.safetensors` via Git LFS. To use it, clone the repo with `git lfs install` first (or run `git lfs pull` after a regular clone). Then point `--lora_weights /path/to/RGB2IR/models` in Step 4.
+A pretrained grayscale → IR LoRA (PSNR=15.97, SSIM=0.521, FID=55.37) is included at `models/pytorch_lora_weights.safetensors` via Git LFS. To use it, clone the repo with `git lfs install` first (or run `git lfs pull` after a regular clone). Then point `--lora_weights /path/to/RGB2IR/models` in Step 4.
 
 ## File Reference
 
