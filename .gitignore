@@ -26,7 +26,6 @@ runs/
 
 # Local
 .claude/
-data/
 logs/
 outputs/
 
