@@ -10,6 +10,24 @@ real IR  →[Klein-9B → grayscale]→  synthetic_grayscale  →[Klein-4B + LoR
 
 `run_flux2.py` always saves a single-channel grayscale image regardless of the FLUX model used. The LoRA learns the mapping `grayscale → IR`.
 
+## Clone (with Git LFS)
+
+The LoRA weights (`models/`, ~106 MB) and dataset (`data/`, ~80 MB) are stored via Git LFS. Install Git LFS once on your machine, then clone — LFS files download automatically:
+
+```bash
+# One-time setup (apt: sudo apt install git-lfs / mac: brew install git-lfs)
+git lfs install
+
+git clone git@github.com:ChuaHanChong/RGB2IR.git
+cd RGB2IR
+```
+
+If you already cloned without LFS (e.g., the `models/pytorch_lora_weights.safetensors` is only ~135 bytes — a pointer file), run:
+
+```bash
+git lfs pull
+```
+
 ## Setup
 
 ```bash
@@ -24,9 +42,6 @@ pip install diffusers transformers accelerate peft prodigyopt safetensors datase
 
 # Login to HF (Klein models are gated)
 huggingface-cli login
-
-# Git LFS — required to clone the LoRA weights in models/
-git lfs install
 ```
 
 Set HF cache:
